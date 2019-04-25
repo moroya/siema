@@ -474,7 +474,10 @@ export default class Siema {
     }
 
     if (this.pointerDown && this.drag.letItGo) {
-      e.preventDefault();
+      if(e.cancelable) {
+        e.preventDefault();
+      }
+
       this.drag.endX = e.touches[0].pageX;
       this.sliderFrame.style.webkitTransition = `all 0ms ${this.config.easing}`;
       this.sliderFrame.style.transition = `all 0ms ${this.config.easing}`;
