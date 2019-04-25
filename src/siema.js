@@ -102,9 +102,9 @@ export default class Siema {
       };
 
       // Touch events
-      this.selector.addEventListener('touchstart', this.touchstartHandler, { passive: false });
+      this.selector.addEventListener('touchstart', this.touchstartHandler, { passive: true });
       this.selector.addEventListener('touchend', this.touchendHandler);
-      this.selector.addEventListener('touchmove', this.touchmoveHandler, { passive: true });
+      this.selector.addEventListener('touchmove', this.touchmoveHandler, { passive: false });
 
       // Mouse events
       this.selector.addEventListener('mousedown', this.mousedownHandler);
@@ -123,9 +123,9 @@ export default class Siema {
    */
   detachEvents() {
     window.removeEventListener('resize', this.resizeHandler);
-    this.selector.removeEventListener('touchstart', this.touchstartHandler, { passive: false });
+    this.selector.removeEventListener('touchstart', this.touchstartHandler, { passive: true });
     this.selector.removeEventListener('touchend', this.touchendHandler);
-    this.selector.removeEventListener('touchmove', this.touchmoveHandler, { passive: true });
+    this.selector.removeEventListener('touchmove', this.touchmoveHandler, { passive: false });
     this.selector.removeEventListener('mousedown', this.mousedownHandler);
     this.selector.removeEventListener('mouseup', this.mouseupHandler);
     this.selector.removeEventListener('mouseleave', this.mouseleaveHandler);
